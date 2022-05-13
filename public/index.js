@@ -1,10 +1,6 @@
 var createBtn = document.getElementById("createBtn");
 var deleteList = document.querySelectorAll("#delete_list");
 
-const init = () => {
-  //set action for form
-}; //delete html files, create from db html files
-
 deleteList.forEach((list) =>
   list.addEventListener("click", (e) => {
     let siteId = list.getAttribute("data-id");
@@ -38,8 +34,8 @@ function createSite(formData) {
 
   fetch("./sites", createMethod)
     .then((response) => response.json())
-    .then((data) => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
-    .catch((err) => console.log(err)); // Do something with the error
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
 }
 
 function deleteSite(siteId) {
@@ -52,6 +48,6 @@ function deleteSite(siteId) {
 
   fetch("./sites/" + siteId, deleteMethod)
     .then((response) => response.json())
-    .then((data) => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
-    .catch((err) => console.log(err)); // Do something with the error
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
 }
