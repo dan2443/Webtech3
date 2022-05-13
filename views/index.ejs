@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Five Countries</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./index.js" defer></script>
+  </head>
+  <header>
+    <h1 align="center">Countries We Want To Visit</h1>
+  </header>
+  <body bgcolor="#3ca2c3">
+    Site list:
+    <ul>
+      <% for( let index = 0; index < sites.length; index++ ) { %>
+      <li>
+        <a href="/site/<%=sites[index]._id%>"><%= sites[index].title %> </a>
+      </li>
+      <% } %>
+    </ul>
+    <br />
+
+    <div>
+      Upload new Site:
+      <br />
+      <br />
+      <label>Site's name:</label>
+      <br />
+      <textarea
+        class="title_text"
+        id="site.title"
+        placeHolder="The name of the site you want to visit"
+      ></textarea
+      ><br />
+      <label>Content:</label>
+      <br />
+      <textarea
+        class="content_text"
+        type="text"
+        id="site.content"
+        placeHolder="The content of the site"
+      ></textarea>
+      <br />
+      <input
+        type="file"
+        multiple="multiple"
+        id="site.images"
+        name=""
+        accept="image/*"
+      />
+      <br />
+      <br />
+      <br />
+      <button id="createBtn">Create new site</button>
+      <br />
+    </div>
+    <br />
+    <br />
+    <div>
+      Delete Site:
+      <ul>
+        <% for( let index = 0; index < sites.length; index++ ) { %>
+        <li id="delete_list" data-id="<%= sites[index]._id %>">
+          <a href=""><%=sites[index].title %></a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+  <footer>
+    <p align="center">Made by Dan Kissilevich and Zohar Zaborski</p>
+  </footer>
+</html>
